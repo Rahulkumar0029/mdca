@@ -11,30 +11,7 @@ export const NoticeBoardModule: React.FC = () => {
     body: '',
   });
 
-  React.useEffect(() => {
-    fetch('http://localhost:5000/api/v1/notices')
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.success && Array.isArray(data.data) && data.data.length > 0) {
-          const mapped = data.data.map((item: any) => ({
-            id: item.id,
-            title: item.title,
-            category: item.category,
-            date: new Date(item.publishedAt).toLocaleDateString('en-IN', {
-              day: '2-digit',
-              month: 'short',
-              year: 'numeric',
-            }),
-            body: item.body,
-            badge: 'Broadcast',
-          }));
-          setNotices(mapped);
-        }
-      })
-      .catch(() => null);
-  }, []);
-
-  const handleCreate = async (e: React.FormEvent) => {
+  const handleCreate = (e: React.FormEvent) => {
     e.preventDefault();
     if (!newNotice.title || !newNotice.body) return;
 

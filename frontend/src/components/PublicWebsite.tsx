@@ -26,30 +26,6 @@ interface PublicWebsiteProps {
 
 export const PublicWebsite: React.FC<PublicWebsiteProps> = ({ onOpenEnquiry, onOpenErp }) => {
   const [showDisclosure, setShowDisclosure] = useState(false);
-  const [notices, setNotices] = useState(INITIAL_NOTICES);
-
-  React.useEffect(() => {
-    fetch('http://localhost:5000/api/v1/notices')
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.success && Array.isArray(data.data) && data.data.length > 0) {
-          const mapped = data.data.map((item: any) => ({
-            id: item.id,
-            title: item.title,
-            category: item.category,
-            date: new Date(item.publishedAt).toLocaleDateString('en-IN', {
-              day: '2-digit',
-              month: 'short',
-              year: 'numeric',
-            }),
-            body: item.body,
-            badge: 'Broadcast',
-          }));
-          setNotices(mapped);
-        }
-      })
-      .catch(() => null);
-  }, []);
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800 flex flex-col">
@@ -359,7 +335,7 @@ export const PublicWebsite: React.FC<PublicWebsiteProps> = ({ onOpenEnquiry, onO
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {notices.map((n) => (
+          {INITIAL_NOTICES.map((n) => (
             <div key={n.id} className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
               <div>
                 <div className="flex justify-between items-center mb-2">
