@@ -119,7 +119,7 @@ router.post('/collect', auth_1.authenticateJwt, (0, auth_1.requireRoles)('ACCOUN
                     action: 'FEE_PAYMENT_COLLECTED',
                     entity: 'Payment',
                     entityId: p.id,
-                    newValue: { receiptNo, totalAmountPaise: totalAmountPaise.toString(), mode },
+                    newValue: JSON.stringify({ receiptNo, totalAmountPaise: totalAmountPaise.toString(), mode }),
                 },
             });
             return p;

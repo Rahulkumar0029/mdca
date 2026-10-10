@@ -3,21 +3,78 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --color-navy: #142B4A;
+    --color-ivory: #F5F2EA;
+    --color-brass: #B89455;
+    --color-forest: #367765;
+  }
+
   body {
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    background-color: #F8F9FA;
+    color: #1A202C;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
+
   h1, h2, h3, .font-heading {
-    font-family: 'Space Grotesk', 'Plus Jakarta Sans', sans-serif;
+    letter-spacing: -0.02em;
   }
 }
 
-/* Custom scrollbars and styling */
+/* ------------------------------------------------------------- */
+/* MOTION DESIGN SYSTEM (Compliant with Section 3 & 6 of Plan)   */
+/* ------------------------------------------------------------- */
+
+/* Respect User's Reduced Motion Accessibility Setting */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Fast purposeful UI transitions */
+.transition-ui {
+  transition-property: transform, opacity, background-color, border-color, color, box-shadow;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  transition-duration: 220ms;
+}
+
+.transition-fast {
+  transition-property: transform, opacity, background-color, color;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  transition-duration: 150ms;
+}
+
+/* Skeleton Loading Shimmer without Layout Shift */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton-shimmer {
+  background: linear-gradient(90deg, #edf2f7 25%, #f7fafc 50%, #edf2f7 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Subtle editorial scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: #F5F2EA;
 }
 ::-webkit-scrollbar-thumb {
   background: #cbd5e1;
@@ -25,13 +82,4 @@
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
-}
-
-@keyframes pulseGlow {
-  0%, 100% { opacity: 0.8; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.03); }
-}
-
-.animate-glow {
-  animation: pulseGlow 4s infinite ease-in-out;
 }

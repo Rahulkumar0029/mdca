@@ -47,10 +47,7 @@ npm run dev       # Starts API server on http://localhost:5000
 ```
 
 * **Health Check**: `GET http://localhost:5000/health`
-* **Test Accounts** (Password: `Admin@123`):
-  * **Principal**: `9876543210` (`Dr. Ramesh Sharma`)
-  * **Accountant**: `9876543211` (`Vikram Singh`)
-  * **Teacher**: `9876543212` (`Sunita Verma`)
+* **Local Accounts**: Local development accounts are seeded via `npm run seed` using hashed development passwords defined in local `.env` (never committed to repository). Production instances enforce MFA and strict role policies.
 
 ### 2. Frontend Web Application (`/frontend`)
 

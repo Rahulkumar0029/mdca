@@ -1,7 +1,7 @@
 import { Router, Request, Response, NextFunction } from 'express';
 import { prisma } from '../../utils/prisma';
 import { authenticateJwt, requireRoles } from '../../middleware/auth';
-import { PaymentMode } from '@prisma/client';
+export type PaymentMode = 'UPI' | 'NET_BANKING' | 'CARD' | 'CASH' | 'CHEQUE' | 'DEMAND_DRAFT';
 
 const router = Router();
 
@@ -145,7 +145,7 @@ router.post(
             action: 'FEE_PAYMENT_COLLECTED',
             entity: 'Payment',
             entityId: p.id,
-            newValue: { receiptNo, totalAmountPaise: totalAmountPaise.toString(), mode },
+            newValue: JSON.stringify({ receiptNo, totalAmountPaise: totalAmountPaise.toString(), mode }),
           },
         });
 

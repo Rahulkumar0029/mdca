@@ -55,14 +55,14 @@ export const PortalNavbar: React.FC<Props> = ({ currentRole, onRoleChange, onOpe
   const currentInfo = roleLabels[currentRole];
 
   return (
-    <header className="sticky top-0 z-40 bg-gradient-to-r from-red-800 via-rose-900 to-slate-900 text-white shadow-md border-b border-white/10">
+    <header className="sticky top-0 z-40 bg-navy-900 text-white shadow-soft-2 border-b border-navy-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-2.5 flex items-center justify-between gap-4">
         {/* Left School Crest */}
         <div className="flex items-center gap-3 shrink-0">
-          <div className="flex items-center gap-2.5 bg-white text-slate-900 px-3 py-1.5 rounded-xl shadow-sm">
-            <GraduationCap className="w-6 h-6 text-red-700" />
+          <div className="flex items-center gap-2.5 bg-ivory-100 text-navy-900 px-3 py-1.5 rounded-md shadow-sm border border-brass-500/20">
+            <GraduationCap className="w-5 h-5 text-brass-600" />
             <div>
-              <div className="font-heading font-black text-xs leading-none text-red-950 uppercase tracking-tight">
+              <div className="font-heading font-black text-xs leading-none text-navy-950 uppercase tracking-tight">
                 M.D. CHILDREN ACADEMY
               </div>
               <div className="text-[9px] font-bold text-slate-500 uppercase tracking-wider">

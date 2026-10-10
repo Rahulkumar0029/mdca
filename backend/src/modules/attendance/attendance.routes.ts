@@ -1,7 +1,7 @@
 import { Router, Request, Response, NextFunction } from 'express';
 import { prisma } from '../../utils/prisma';
 import { authenticateJwt, requireRoles } from '../../middleware/auth';
-import { AttendanceStatus } from '@prisma/client';
+export type AttendanceStatus = 'PRESENT' | 'ABSENT' | 'LATE' | 'HALF_DAY';
 
 const router = Router();
 

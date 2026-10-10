@@ -101,13 +101,13 @@ export const PublicWebsite: React.FC<PublicWebsiteProps> = ({ onOpenEnquiry, onO
       </header>
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-slate-900 via-blue-950 to-indigo-950 text-white py-20 px-4 sm:px-6 lg:px-8">
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+      <section className="relative overflow-hidden bg-gradient-to-b from-navy-950 via-navy-900 to-slate-900 text-white py-20 px-4 sm:px-6 lg:px-8 border-b border-navy-800">
+        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:20px_20px]"></div>
         <div className="max-w-7xl mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs font-semibold text-amber-300">
-              <Award className="w-4 h-4 text-amber-400" />
-              <span>Top Ranked CBSE School in Raisinghnagar Region</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-navy-800/80 backdrop-blur-md border border-brass-500/30 text-xs font-semibold text-brass-300">
+              <Award className="w-4 h-4 text-brass-400" />
+              <span>Top Ranked CBSE Senior Secondary School • Raisinghnagar</span>
             </div>
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black font-heading leading-tight tracking-tight">
               Empowering Minds, <br />

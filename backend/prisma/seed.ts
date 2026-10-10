@@ -45,8 +45,9 @@ async function main() {
     },
   });
 
-  // Password hash for all sample accounts
-  const passwordHash = await bcrypt.hash('Admin@123', 10);
+  // Development seed password (configurable via INITIAL_DEV_PASSWORD in local .env)
+  const initialPassword = process.env.INITIAL_DEV_PASSWORD || 'DevSecurePass@2026';
+  const passwordHash = await bcrypt.hash(initialPassword, 10);
 
   // 3. Create Key Staff / Users
   const principalUser = await prisma.user.upsert({
